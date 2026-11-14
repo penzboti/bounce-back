@@ -1,17 +1,18 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 6.0
+const JUMP_VELOCITY = 2.5
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		# rotate the face down and up
+		$fish.rotation.x = velocity.y/JUMP_VELOCITY*0.3;
 
 	# Handle jump.
-	# Q: coyote time?
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
@@ -23,11 +24,15 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
+			# rotate in the moving direction
+			var target_angle = atan2(-velocity.x, -velocity.z)
+			$fish.rotation.y = lerp_angle($fish.rotation.y, target_angle, 15.0 * delta)
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, SPEED*0.1)
+			velocity.z = move_toward(velocity.z, 0, SPEED*0.1)
 	else:
 		velocity.x = 0
 		velocity.z = 0
+		$fish.rotation.x = 0;
 
 	move_and_slide()
