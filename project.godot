@@ -56,6 +56,10 @@ ui_down={
 ]
 }
 
+[physics]
+
+3d/default_gravity=15.0
+
 [rendering]
 
 rendering_device/driver.windows="d3d12"

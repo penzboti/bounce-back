@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
+var in_trampoline = false;
 
 const SPEED = 6.0
-const JUMP_VELOCITY = 2.5
+const JUMP_VELOCITY = 4.5
 
 
 func _physics_process(delta: float) -> void:
@@ -15,6 +16,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		if in_trampoline:
+			velocity.y *= 3
 
 	# only able to move when jumping
 	# to make the player constantly bounce
@@ -34,5 +37,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 		$fish.rotation.x = 0;
+
 
 	move_and_slide()

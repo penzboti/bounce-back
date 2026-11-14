@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://0y76ifs54is5"]
 
+[ext_resource type="PackedScene" uid="uid://be7ftmcalss53" path="res://scenes/trampoline.tscn" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://dg4i7iajq6knd" path="res://scenes/player.tscn" id="1_errlg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fo2u6"]
@@ -26,11 +27,14 @@ mesh = SubResource("PlaneMesh_nv6v6")
 [node name="player" parent="." unique_id=561193126 instance=ExtResource("1_errlg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9216257, 0)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=605469370]
-transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660443, 0.6427876, 0, 2.749, 0)
+[node name="Camera3D" type="Camera3D" parent="player" unique_id=605469370]
+transform = Transform3D(1, 0, 0, 0, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 0, 6.43872, 1.1609468)
 fov = 96.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=831027791]
 transform = Transform3D(-0.87135845, 0, -0.49064693, -0.48424563, 0.16100708, 0.8599901, 0.07899763, 0.9869533, -0.14029485, -0.5388241, 7.4052687, -5.591649)
 shadow_enabled = true
 sky_mode = 1
+
+[node name="Trampoline" parent="." unique_id=1732246949 instance=ExtResource("1_bl13t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2320969, 0.13663447, -2.9340324)

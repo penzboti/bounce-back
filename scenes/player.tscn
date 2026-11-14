@@ -4,15 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://tdit7ccrvq5o" path="res://blender/fish.blend" id="2_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iyx0m"]
-radius = 0.2
-height = 0.9041748
+radius = 0.14746094
+height = 0.8373718
 
 [node name="player" type="CharacterBody3D" unique_id=561193126]
 script = ExtResource("1_g2els")
+metadata/player = true
 
 [node name="fish" parent="." unique_id=841200826 instance=ExtResource("2_qhqgy")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=731783894]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, -0.061825216, 0, -0.17274165)
+transform = Transform3D(1.9743642, -0.31919622, 1.395251e-08, 0, -8.742278e-08, -2, 0.31919622, 1.9743642, -8.63022e-08, -0.06108077, 1.2179107e-09, -0.19999748)
 shape = SubResource("CapsuleShape3D_iyx0m")

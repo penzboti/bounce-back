@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://be7ftmcalss53"]
+
+[ext_resource type="Script" uid="uid://wahyrvd6ljl7" path="res://scripts/trampoline.gd" id="1_2yctu"]
+[ext_resource type="PackedScene" uid="uid://2fpvjv4ra8jg" path="res://blender/trampoline.blend" id="2_nytqh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nv6v6"]
+height = 0.10852051
+radius = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fo2u6"]
+height = 0.3522461
+radius = 1.9667969
+
+[node name="Trampoline" type="StaticBody3D" unique_id=1039878817]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=68475736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050354004, 0)
+shape = SubResource("CylinderShape3D_nv6v6")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=85448119]
+script = ExtResource("1_2yctu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=232704022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2306424, 0)
+shape = SubResource("CylinderShape3D_fo2u6")
+
+[node name="trampoline" parent="." unique_id=983867188 instance=ExtResource("2_nytqh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
