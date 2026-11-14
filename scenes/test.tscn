@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://0y76ifs54is5"]
+
+[ext_resource type="Script" uid="uid://b8qm0iykbmen" path="res://scripts/player.gd" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://dreijtsmh65nm" path="res://blender/cube.blend" id="2_iyx0m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fo2u6"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nv6v6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl13t"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nv6v6"]
+size = Vector2(200, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bl13t"]
+
+[node name="Node3D" type="Node3D" unique_id=166899832]
+
+[node name="Plane" type="StaticBody3D" parent="." unique_id=987891270]
+physics_material_override = SubResource("PhysicsMaterial_fo2u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane" unique_id=808902862]
+shape = SubResource("WorldBoundaryShape3D_nv6v6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane" unique_id=1806986327]
+material_override = SubResource("StandardMaterial3D_bl13t")
+mesh = SubResource("PlaneMesh_nv6v6")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1811267874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9216257, 0)
+script = ExtResource("1_bl13t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=732990175]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_bl13t")
+
+[node name="cube" parent="CharacterBody3D" unique_id=1465882809 instance=ExtResource("2_iyx0m")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=605469370]
+transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.7660444, 0, -0.7660443, 0.6427876, 0, 2.749, 0)
+fov = 96.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=831027791]
+transform = Transform3D(-0.87135845, 0, -0.49064693, -0.48424563, 0.16100708, 0.8599901, 0.07899763, 0.9869533, -0.14029485, -0.5388241, 7.4052687, -5.591649)
+shadow_enabled = true
+sky_mode = 1
