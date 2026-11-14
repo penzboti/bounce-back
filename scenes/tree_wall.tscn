@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bfevejgnrhrn4"]
+
+[ext_resource type="Script" uid="uid://5jv3e1so4fql" path="res://scripts/tree_wall.gd" id="1_52afd"]
+[ext_resource type="PackedScene" uid="uid://ce8auoadxrvuv" path="res://blender/tree.blend" id="2_dxhsy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nv6v6"]
+size = Vector3(6.135254, 9.955078, 6.6279907)
+
+[node name="TreeWall" type="Node3D" unique_id=1537366810]
+script = ExtResource("1_52afd")
+
+[node name="tree" parent="." unique_id=1633818605 instance=ExtResource("2_dxhsy")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=413515972]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=359950325]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 4.478, 0)
+shape = SubResource("BoxShape3D_nv6v6")
