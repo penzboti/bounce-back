@@ -40,17 +40,17 @@ sky_mode = 1
 [node name="Trampoline" parent="." unique_id=1732246949 instance=ExtResource("1_bl13t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2320969, 0.13663447, -2.9340324)
 
-[node name="TreeWall" parent="." unique_id=257985562 instance=ExtResource("2_74lek")]
+[node name="TreeWallLeft" parent="." unique_id=257985562 instance=ExtResource("2_74lek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -0.7443814)
 length = 50
 direction = "-z"
 
-[node name="TreeWall3" parent="." unique_id=1537366810 instance=ExtResource("2_74lek")]
+[node name="TreeWallRight" parent="." unique_id=1537366810 instance=ExtResource("2_74lek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -0.744)
 length = 50
 direction = "-z"
 
-[node name="TreeWall2" parent="." unique_id=2011578758 instance=ExtResource("2_74lek")]
+[node name="TreeBackWall" parent="." unique_id=2011578758 instance=ExtResource("2_74lek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 4.182573)
 length = 30
 direction = "+x"
