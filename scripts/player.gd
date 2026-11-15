@@ -69,6 +69,6 @@ func _physics_process(delta: float) -> void:
 			collider.apply_central_impulse(-collision.get_normal() * PUSH_FORCE)
 
 func die() -> void:
-	print("death")
-	# get_tree().reload_current_scene()
+	# print("death")
+	get_tree().reload_current_scene()
 	pass

@@ -1,10 +1,10 @@
 extends Node3D
 
-
 var random = RandomNumberGenerator.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	random.seed = 12345
+	random.seed = "halacskaaaaaa".length()
 	pass # Replace with function body.
 
 

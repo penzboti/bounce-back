@@ -61,6 +61,14 @@ offset_right = 641.0
 offset_bottom = 624.0
 text = "Go to menu"
 
+[node name="Label" type="Label" parent="Control" unique_id=645347088]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 554.0
+offset_right = 695.0
+offset_bottom = 577.0
+text = "They're named Eugene btw"
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1479380911]
 transform = Transform3D(1, 0, 0, 0, 0.69175977, 0.72212774, 0, -0.72212774, 0.69175977, 0, 3.7038293, 5.590485)
 
