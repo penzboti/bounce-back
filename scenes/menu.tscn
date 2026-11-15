@@ -1,22 +1,15 @@
 [gd_scene format=3 uid="uid://cftedsfi2s4o6"]
 
 [ext_resource type="Script" uid="uid://bdswmnnu7vsvm" path="res://scripts/menu.gd" id="1_yqeox"]
-[ext_resource type="PackedScene" uid="uid://0y76ifs54is5" path="res://scenes/test.tscn" id="2_mhnvy"]
-[ext_resource type="Material" uid="uid://cv73m61nx8y40" path="res://materials/Green.tres" id="2_vjb58"]
+[ext_resource type="PackedScene" uid="uid://0y76ifs54is5" path="res://scenes/main.tscn" id="2_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://dg4i7iajq6knd" path="res://scenes/player.tscn" id="3_con2f"]
 [ext_resource type="PackedScene" uid="uid://ce8auoadxrvuv" path="res://blender/tree.blend" id="4_g3eks"]
 [ext_resource type="PackedScene" uid="uid://dn53r5xr25xqb" path="res://scenes/wall.tscn" id="8_70i5f"]
 [ext_resource type="PackedScene" uid="uid://d1pg060p1syfs" path="res://scenes/ufo.tscn" id="9_mj5lg"]
+[ext_resource type="PackedScene" uid="uid://byhnbs2f6mhws" path="res://scenes/ground.tscn" id="10_6cdou"]
 [ext_resource type="PackedScene" uid="uid://dh4q2iqfqes77" path="res://blender/car.blend" id="10_70i5f"]
 [ext_resource type="PackedScene" uid="uid://dg2k8t4u7c33r" path="res://scenes/box.tscn" id="10_mj5lg"]
 [ext_resource type="PackedScene" uid="uid://be7ftmcalss53" path="res://scenes/trampoline.tscn" id="10_ufwb2"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_con2f"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mhnvy"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4ytvr"]
-size = Vector2(200, 500)
 
 [node name="Menu" type="Node3D" unique_id=1460210892]
 script = ExtResource("1_yqeox")
@@ -71,17 +64,6 @@ offset_right = 691.0
 offset_bottom = 694.0
 text = "Solo project by penzboti"
 
-[node name="Plane" type="StaticBody3D" parent="." unique_id=1345042850]
-physics_material_override = SubResource("PhysicsMaterial_con2f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane" unique_id=1692425252]
-shape = SubResource("WorldBoundaryShape3D_mhnvy")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane" unique_id=1388245248]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
-material_override = ExtResource("2_vjb58")
-mesh = SubResource("PlaneMesh_4ytvr")
-
 [node name="player" parent="." unique_id=561193126 instance=ExtResource("3_con2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5366955, 0.38200834, -0.18164325)
 
@@ -104,7 +86,11 @@ transform = Transform3D(0.31491756, 0, 0.9491191, 0, 1, 0, -0.9491191, 0, 0.3149
 transform = Transform3D(-0.8839289, 0, -0.4676212, 0, 1, 0, 0.4676212, 0, -0.8839289, -2.5900064, 64.4415, -1.4443927)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=372793485]
-transform = Transform3D(1, 0, 0, 0, 0.69175977, 0.72212774, 0, -0.72212774, 0.69175977, 0, 3.7038293, 5.590485)
+transform = Transform3D(0.95358616, -0.06591325, -0.29381776, 0.3011203, 0.20873377, 0.93046063, 8.7600616e-10, -0.9757489, 0.21889348, 0, 9.335581, 5.590485)
+light_angular_distance = 10.0
+shadow_enabled = true
+shadow_normal_bias = 10.0
+shadow_reverse_cull_face = true
 
 [node name="car" parent="." unique_id=983966813 instance=ExtResource("10_70i5f")]
 transform = Transform3D(0.7255316, 0, 0.68818885, 0, 1, 0, -0.68818885, 0, 0.7255316, -6, 1, -14)
@@ -120,5 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7421217, 5.9673767, -7.6063
 
 [node name="Trampoline" parent="." unique_id=1039878817 instance=ExtResource("10_ufwb2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6501408, 0.12908716, -1.3604774)
+
+[node name="Ground" parent="." unique_id=1931370329 instance=ExtResource("10_6cdou")]
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

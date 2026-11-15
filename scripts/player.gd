@@ -9,6 +9,11 @@ var in_trampoline = false
 var no_input = false
 var prev_dir: Vector3 = Vector3.ZERO
 
+func _process(_delta) -> void:
+	for i in "1234567890":
+		if Input.is_action_just_pressed(i):
+			global_position = get_tree().current_scene.get_node("TP"+i).global_position
+
 func _physics_process(delta: float) -> void:
 	# gravity
 	if not is_on_floor():
@@ -56,7 +61,7 @@ func _physics_process(delta: float) -> void:
 			continue
 
 		# checking car collision
-		if collision.get_collider().is_in_group("car"):
+		if collider.is_in_group("car"):
 			var car = collision.get_collider()
 			# we check that we are hitting it from above.
 			var vec = Vector3.RIGHT if car.flip == 1 else Vector3.LEFT
@@ -65,7 +70,7 @@ func _physics_process(delta: float) -> void:
 				break
 
 		# checking box collision
-		if collider is RigidBody3D:
+		if collider is RigidBody3D and collider.is_in_group("box"):
 			collider.apply_central_impulse(-collision.get_normal() * PUSH_FORCE)
 
 func die() -> void:

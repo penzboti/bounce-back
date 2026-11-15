@@ -1,31 +1,13 @@
 [gd_scene format=3 uid="uid://wusnonpsksuv"]
 
-[ext_resource type="Material" uid="uid://cv73m61nx8y40" path="res://materials/Green.tres" id="1_3d26k"]
 [ext_resource type="Script" uid="uid://c1f6pkmmcvglu" path="res://scripts/end.gd" id="1_p7m4f"]
 [ext_resource type="PackedScene" uid="uid://bfevejgnrhrn4" path="res://scenes/tree_wall.tscn" id="3_p7m4f"]
 [ext_resource type="PackedScene" uid="uid://dgqj07q2n58mi" path="res://blender/ufo.blend" id="4_s4tl2"]
 [ext_resource type="PackedScene" uid="uid://dh4q2iqfqes77" path="res://blender/car.blend" id="5_8hmjt"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bvfni"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_s4tl2"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8hmjt"]
-size = Vector2(200, 500)
+[ext_resource type="PackedScene" uid="uid://byhnbs2f6mhws" path="res://scenes/ground.tscn" id="5_s4tl2"]
 
 [node name="End" type="Node3D" unique_id=1295700553]
 script = ExtResource("1_p7m4f")
-
-[node name="Plane" type="StaticBody3D" parent="." unique_id=1730001860]
-physics_material_override = SubResource("PhysicsMaterial_bvfni")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane" unique_id=1887480876]
-shape = SubResource("WorldBoundaryShape3D_s4tl2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane" unique_id=1125212070]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
-material_override = ExtResource("1_3d26k")
-mesh = SubResource("PlaneMesh_8hmjt")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1273478560]
 transform = Transform3D(1, 0, 0, 0, 0.98570997, 0.16845141, 0, -0.16845141, 0.98570997, 0, 2.2927568, 2.5082722)
@@ -82,5 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.006564, 1.838933, -5.7827
 
 [node name="car" parent="." unique_id=983966813 instance=ExtResource("5_8hmjt")]
 transform = Transform3D(-0.4294807, 0, -0.90307605, 0, 1, 0, 0.90307605, 0, -0.4294807, 6.2598147, 0.62380755, -7.8108873)
+
+[node name="Ground" parent="." unique_id=1931370329 instance=ExtResource("5_s4tl2")]
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

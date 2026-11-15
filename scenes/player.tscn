@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iyx0m"]
 radius = 0.14746094
-height = 0.8373718
+height = 0.79759216
 
 [node name="player" type="CharacterBody3D" unique_id=561193126]
 script = ExtResource("1_g2els")
@@ -15,5 +15,5 @@ metadata/player = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=731783894]
-transform = Transform3D(1.9743642, -0.31919622, 1.395251e-08, 0, -8.742278e-08, -2, 0.31919622, 1.9743642, -8.63022e-08, -0.06108077, 1.2179107e-09, -0.19999748)
+transform = Transform3D(1.9743642, -0.31919622, 1.395251e-08, 0, -8.742278e-08, -2, 0.31919622, 1.9743642, -8.63022e-08, -0.05473201, 2.9567349e-09, -0.23926726)
 shape = SubResource("CapsuleShape3D_iyx0m")
