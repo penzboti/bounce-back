@@ -24,6 +24,7 @@ func _process(delta: float):
 			spawn_copy()
 	time += delta
 
+# might be ai
 func spawn_copy():
 	var copy = scene_to_copy.instantiate()
 	get_tree().current_scene.add_child.call_deferred(copy)

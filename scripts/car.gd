@@ -11,10 +11,10 @@ var on_car: bool = false
 @onready var player = get_tree().current_scene.get_node("player")
 
 func _ready() -> void:
+	start_position = global_position
 	pass
 
 func start_moving(distance: float, _speed: float):
-	start_position = global_position
 	if distance < 0:
 		flip = -1
 		distance = distance*flip

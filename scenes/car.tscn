@@ -9,7 +9,8 @@ size = Vector3(2.9987793, 1.5748291, 7.466736)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fo2u6"]
 size = Vector3(2.7892456, 0.8720703, 4.125107)
 
-[node name="Car" type="StaticBody3D" unique_id=1096167182]
+[node name="Car" type="StaticBody3D" unique_id=1096167182 groups=["car"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19, 0)
 script = ExtResource("1_qt2eu")
 
 [node name="car" parent="." unique_id=983966813 instance=ExtResource("1_c35m8")]

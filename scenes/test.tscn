@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dg4i7iajq6knd" path="res://scenes/player.tscn" id="1_errlg"]
 [ext_resource type="Material" uid="uid://cv73m61nx8y40" path="res://materials/Green.tres" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bfevejgnrhrn4" path="res://scenes/tree_wall.tscn" id="2_74lek"]
+[ext_resource type="PackedScene" uid="uid://dn53r5xr25xqb" path="res://scenes/wall.tscn" id="2_jcd4p"]
+[ext_resource type="PackedScene" uid="uid://dg2k8t4u7c33r" path="res://scenes/box.tscn" id="3_uacia"]
 [ext_resource type="Script" uid="uid://b2dn1dim6u4uk" path="res://scripts/camera.gd" id="5_j5jx5"]
 [ext_resource type="PackedScene" uid="uid://0phpg4qaw7l7" path="res://scenes/car_spawner.tscn" id="6_lpvoh"]
+[ext_resource type="PackedScene" uid="uid://d1pg060p1syfs" path="res://scenes/ufo.tscn" id="7_at5dv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fo2u6"]
 
@@ -74,3 +77,18 @@ flip = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25, 0, -34.014893)
 speed = 10.0
 count = 2
+
+[node name="Ufo" parent="." unique_id=1036925374 instance=ExtResource("7_at5dv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.245516, 0.4168477, -4.975437)
+
+[node name="Ufo2" parent="." unique_id=1089411512 instance=ExtResource("7_at5dv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6483917, 5.897446, -4.975437)
+
+[node name="Wall" parent="." unique_id=2126920643 instance=ExtResource("2_jcd4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4931235, 0, -21.44215)
+
+[node name="Wall2" parent="." unique_id=1187261668 instance=ExtResource("2_jcd4p")]
+transform = Transform3D(1, 0, 0, 0, 0.7, 0, 0, 0, 1, 7.4931235, 0, -20.228046)
+
+[node name="Box" parent="." unique_id=1851400727 instance=ExtResource("3_uacia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8813, 1, -7.039654)
