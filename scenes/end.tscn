@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://wusnonpsksuv"]
+
+[ext_resource type="Material" uid="uid://cv73m61nx8y40" path="res://materials/Green.tres" id="1_3d26k"]
+[ext_resource type="Script" uid="uid://c1f6pkmmcvglu" path="res://scripts/end.gd" id="1_p7m4f"]
+[ext_resource type="PackedScene" uid="uid://bfevejgnrhrn4" path="res://scenes/tree_wall.tscn" id="3_p7m4f"]
+[ext_resource type="PackedScene" uid="uid://dgqj07q2n58mi" path="res://blender/ufo.blend" id="4_s4tl2"]
+[ext_resource type="PackedScene" uid="uid://dh4q2iqfqes77" path="res://blender/car.blend" id="5_8hmjt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bvfni"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_s4tl2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8hmjt"]
+size = Vector2(200, 500)
+
+[node name="End" type="Node3D" unique_id=1295700553]
+script = ExtResource("1_p7m4f")
+
+[node name="Plane" type="StaticBody3D" parent="." unique_id=1730001860]
+physics_material_override = SubResource("PhysicsMaterial_bvfni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane" unique_id=1887480876]
+shape = SubResource("WorldBoundaryShape3D_s4tl2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane" unique_id=1125212070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
+material_override = ExtResource("1_3d26k")
+mesh = SubResource("PlaneMesh_8hmjt")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1273478560]
+transform = Transform3D(1, 0, 0, 0, 0.98570997, 0.16845141, 0, -0.16845141, 0.98570997, 0, 2.2927568, 2.5082722)
+fov = 90.0
+
+[node name="Control" type="Control" parent="." unique_id=475978533]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextEdit" type="Label" parent="Control" unique_id=684692085]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 90.0
+offset_right = 637.0
+offset_bottom = 181.0
+text = "The Bouncing Fish"
+
+[node name="TextEdit2" type="Label" parent="Control" unique_id=509225476]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 193.0
+offset_right = 687.0
+offset_bottom = 279.0
+text = "Thank you for playing!!"
+
+[node name="Button" type="Button" parent="Control" unique_id=254890277]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 593.0
+offset_right = 641.0
+offset_bottom = 624.0
+text = "Go to menu"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1479380911]
+transform = Transform3D(1, 0, 0, 0, 0.69175977, 0.72212774, 0, -0.72212774, 0.69175977, 0, 3.7038293, 5.590485)
+
+[node name="TreeWall" parent="." unique_id=1537366810 instance=ExtResource("3_p7m4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.380558, -9.536743e-07, -11.147657)
+length = 70
+direction = "+x"
+
+[node name="ufo" parent="." unique_id=308370126 instance=ExtResource("4_s4tl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.006564, 1.838933, -5.7827654)
+
+[node name="car" parent="." unique_id=983966813 instance=ExtResource("5_8hmjt")]
+transform = Transform3D(-0.4294807, 0, -0.90307605, 0, 1, 0, 0.90307605, 0, -0.4294807, 6.2598147, 0.62380755, -7.8108873)
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

@@ -1,12 +1,12 @@
 extends CharacterBody3D
 
-var in_trampoline = false;
-
 const SPEED = 6.0
 const JUMP_VELOCITY = 4.5
 
 const PUSH_FORCE = 0.5
 
+var in_trampoline = false
+var no_input = false
 var prev_dir: Vector3 = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
@@ -69,5 +69,6 @@ func _physics_process(delta: float) -> void:
 			collider.apply_central_impulse(-collision.get_normal() * PUSH_FORCE)
 
 func die() -> void:
-	print("death ", global_position.y)
+	print("death")
+	# get_tree().reload_current_scene()
 	pass
