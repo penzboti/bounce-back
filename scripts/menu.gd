@@ -3,6 +3,7 @@ extends Node3D
 @export var load_scene: PackedScene
 
 func _ready() -> void:
+	AudioController.play_music()
 	for child in get_tree().current_scene.get_children():
 		if child.has_meta("player"):
 			child.set_process_input(false)

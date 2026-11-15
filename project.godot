@@ -18,6 +18,10 @@ boot_splash/bg_color=Color(0.18987596, 0.2977099, 3.3691526e-07, 1)
 boot_splash/image="uid://dh8khq37ua3hg"
 config/icon="uid://dh8khq37ua3hg"
 
+[autoload]
+
+AudioController="*uid://c0qanxrucg2l6"
+
 [display]
 
 window/stretch/mode="canvas_items"
