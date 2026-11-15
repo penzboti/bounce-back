@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dg4i7iajq6knd" path="res://scenes/player.tscn" id="1_errlg"]
 [ext_resource type="Material" uid="uid://cv73m61nx8y40" path="res://materials/Green.tres" id="1_iyx0m"]
 [ext_resource type="PackedScene" uid="uid://bfevejgnrhrn4" path="res://scenes/tree_wall.tscn" id="2_74lek"]
+[ext_resource type="Script" uid="uid://b2dn1dim6u4uk" path="res://scripts/camera.gd" id="5_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://0phpg4qaw7l7" path="res://scenes/car_spawner.tscn" id="6_lpvoh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fo2u6"]
 
@@ -28,17 +30,16 @@ mesh = SubResource("PlaneMesh_nv6v6")
 [node name="player" parent="." unique_id=561193126 instance=ExtResource("1_errlg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9216257, 0)
 
-[node name="Camera3D" type="Camera3D" parent="player" unique_id=605469370]
-transform = Transform3D(1, 0, 0, 0, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, 0, 6.43872, 1.1609468)
-fov = 96.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=831027791]
-transform = Transform3D(-0.87135845, 0, -0.49064693, -0.48424563, 0.16100708, 0.8599901, 0.07899763, 0.9869533, -0.14029485, -0.5388241, 7.4052687, -5.591649)
+transform = Transform3D(-0.95035475, 0.032071188, -0.30951107, -0.30437073, -0.30258155, 0.90321803, -0.064685084, 0.9525837, 0.29732144, -0.5388241, 7.4052687, -5.591649)
 shadow_enabled = true
 sky_mode = 1
 
 [node name="Trampoline" parent="." unique_id=1732246949 instance=ExtResource("1_bl13t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2320969, 0.13663447, -2.9340324)
+
+[node name="Trampoline2" parent="." unique_id=1039878817 instance=ExtResource("1_bl13t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2320969, 0.13663447, -13.890365)
 
 [node name="TreeWallLeft" parent="." unique_id=257985562 instance=ExtResource("2_74lek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -0.7443814)
@@ -54,3 +55,22 @@ direction = "-z"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 4.182573)
 length = 30
 direction = "+x"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=605469370]
+transform = Transform3D(1, 0, 0, 0, 0.6881752, 0.7255446, 0, -0.7255446, 0.6881752, 0, 8.360346, 2.673441)
+fov = 96.0
+script = ExtResource("5_j5jx5")
+
+[node name="CarSpawner" parent="." unique_id=1570124482 instance=ExtResource("6_lpvoh")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25, 0, -18.2942)
+spawn_time = 1.25
+
+[node name="CarSpawner3" parent="." unique_id=1184683489 instance=ExtResource("6_lpvoh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25, 0, -24.986)
+spawn_time = 1.25
+flip = true
+
+[node name="CarSpawner2" parent="." unique_id=1535902831 instance=ExtResource("6_lpvoh")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25, 0, -34.014893)
+speed = 10.0
+count = 2

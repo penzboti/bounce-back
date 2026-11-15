@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d1he3wbugxjrs"]
+
+[ext_resource type="PackedScene" uid="uid://dh4q2iqfqes77" path="res://blender/car.blend" id="1_c35m8"]
+[ext_resource type="Script" uid="uid://c1rrbarburox" path="res://scripts/car.gd" id="1_qt2eu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nv6v6"]
+size = Vector3(2.9987793, 1.5748291, 7.466736)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fo2u6"]
+size = Vector3(2.7892456, 0.8720703, 4.125107)
+
+[node name="Car" type="StaticBody3D" unique_id=1096167182]
+script = ExtResource("1_qt2eu")
+
+[node name="car" parent="." unique_id=983966813 instance=ExtResource("1_c35m8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7034733)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1098261735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041870117, 0.67852783, 0.86870074)
+shape = SubResource("BoxShape3D_nv6v6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=570287997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05557251, 1.4940772, 0.6511791)
+shape = SubResource("BoxShape3D_fo2u6")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1307638055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.373468, -0.7034733)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=564717573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041870117, -0.09837675, 1.5721741)
+shape = SubResource("BoxShape3D_nv6v6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

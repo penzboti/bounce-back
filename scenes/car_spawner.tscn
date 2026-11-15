@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://0phpg4qaw7l7"]
+
+[ext_resource type="Script" uid="uid://cqd7njvfr2ohs" path="res://scripts/car_spawner.gd" id="1_rk3ya"]
+[ext_resource type="PackedScene" uid="uid://dh4q2iqfqes77" path="res://blender/car.blend" id="2_jxr84"]
+
+[node name="CarSpawner" type="Node3D" unique_id=1570124482]
+script = ExtResource("1_rk3ya")
+
+[node name="car" parent="." unique_id=983966813 instance=ExtResource("2_jxr84")]
