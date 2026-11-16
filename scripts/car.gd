@@ -29,10 +29,6 @@ func _process(delta):
 	if distance_traveled >= max_distance:
 		queue_free()
 
-	if on_car and player.is_on_floor():
-		player.global_position += flip*global_transform.basis.z * speed * delta
-
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.has_meta("player"):
 		on_car = true

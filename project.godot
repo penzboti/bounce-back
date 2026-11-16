@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="bounce-back"
+config/tags=PackedStringArray("game")
 run/main_scene="uid://cftedsfi2s4o6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60

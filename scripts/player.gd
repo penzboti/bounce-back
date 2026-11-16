@@ -52,8 +52,10 @@ func _physics_process(delta: float) -> void:
 		$fish.rotation.x = 0;
 
 
+
 	move_and_slide()
 
+	var on_car = false
 	for index in range(get_slide_collision_count()):
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
@@ -62,9 +64,13 @@ func _physics_process(delta: float) -> void:
 
 		# checking car collision
 		if collider.is_in_group("car"):
-			var car = collision.get_collider()
+			if not on_car and collider.on_car and is_on_floor():
+				# only the first speed is applied; which might be bad but still better
+				global_position += collider.global_transform.basis.z * collider.speed * delta
+				on_car = true
+
 			# we check that we are hitting it from above.
-			var vec = Vector3.RIGHT if car.flip == 1 else Vector3.LEFT
+			var vec = Vector3.RIGHT if collider.flip == 1 else Vector3.LEFT
 			if vec.dot(collision.get_normal()) > 0.1 and global_position.y < 0.8:
 				die()
 				break
