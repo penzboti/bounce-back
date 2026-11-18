@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh8khq37ua3hg"
-path="res://.godot/imported/eugene.png-8c61a7ee270da6bea8f4048d3ffbeda7.ctex"
+path="res://.godot/imported/eugene.png-426e5ab4e0a12d15ceac54025a05855c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://eugene.png"
-dest_files=["res://.godot/imported/eugene.png-8c61a7ee270da6bea8f4048d3ffbeda7.ctex"]
+source_file="res://images/eugene.png"
+dest_files=["res://.godot/imported/eugene.png-426e5ab4e0a12d15ceac54025a05855c.ctex"]
 
 [params]
 

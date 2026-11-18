@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bfevejgnrhrn4" path="res://scenes/tree_wall.tscn" id="3_trceg"]
 [ext_resource type="PackedScene" uid="uid://byhnbs2f6mhws" path="res://scenes/ground.tscn" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://dy3ryks4divb1" path="res://scenes/lake.tscn" id="5_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://buv6craw5wv18" path="res://scenes/mobile_ui.tscn" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dn53r5xr25xqb" path="res://scenes/wall.tscn" id="6_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://be7ftmcalss53" path="res://scenes/trampoline.tscn" id="7_muem4"]
 [ext_resource type="PackedScene" uid="uid://0phpg4qaw7l7" path="res://scenes/car_spawner.tscn" id="8_dp3eg"]
@@ -53,11 +54,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 0.01951313, 0, -0.000259399
 [node name="Lake" parent="Singles" unique_id=1121518739 instance=ExtResource("5_jkv2x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22941303, 0.1, -507.9647)
 
+[node name="MobileUi" parent="Singles" unique_id=2003498192 instance=ExtResource("6_eb6dy")]
+
 [node name="Wall2" parent="." unique_id=278153911 instance=ExtResource("6_jbj1t")]
 transform = Transform3D(2.2813382, 0, 0, 0, 1.3537512, 0, 0, 0, 1, 0.4738388, 0, -21.44215)
 
 [node name="Trampoline2" parent="." unique_id=1670929577 instance=ExtResource("7_muem4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.123122, 0.13663447, -17.172455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01640892, 0.13663447, -17.172455)
 
 [node name="CarSpawner2" parent="." unique_id=862783028 instance=ExtResource("8_dp3eg")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25, 0, -34.693806)

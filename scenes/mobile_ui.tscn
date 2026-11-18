@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://buv6craw5wv18"]
+
+[ext_resource type="Texture2D" uid="uid://dxsk6xti85wnd" path="res://images/jump_up.png" id="1_2oyvj"]
+[ext_resource type="Texture2D" uid="uid://dnddgagcaa0yp" path="res://images/jump_pressed.png" id="2_hxaye"]
+
+[sub_resource type="GDScript" id="GDScript_hxaye"]
+script/source = "extends Control
+
+@export var debug_touch = false
+
+func _ready() -> void:
+	for child in $\".\".get_children():
+		print(child.name)
+	if !OS.has_feature(\"mobile\") && !debug_touch:
+		$\".\".queue_free()
+		pass
+
+func _on_button_down() -> void:
+	var ev = InputEventAction.new()
+	ev.action = \"ui_accept\"
+	ev.pressed = true
+	Input.parse_input_event(ev)
+
+
+func _on_button_up() -> void:
+	var ev = InputEventAction.new()
+	ev.action = \"ui_accept\"
+	ev.pressed = false
+	Input.parse_input_event(ev)
+"
+
+[node name="MobileUi" type="Control" unique_id=2003498192]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 500.0
+offset_right = 40.0
+offset_bottom = 500.0
+script = SubResource("GDScript_hxaye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1780064372]
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="CanvasLayer" unique_id=202079494]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = -188.0
+offset_right = 180.0
+offset_bottom = -148.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=1526150851]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -208.0
+offset_right = -222.0
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_2oyvj")
+texture_pressed = ExtResource("2_hxaye")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="button_down" from="CanvasLayer/TextureButton" to="." method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/TextureButton" to="." method="_on_button_up"]

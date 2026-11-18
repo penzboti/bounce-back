@@ -25,43 +25,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.892669, 0, -1.9736986)
 transform = Transform3D(1, 0, 0, 0, 0.98570997, 0.16845141, 0, -0.16845141, 0.98570997, 0, 2.2927568, 2.5082722)
 fov = 90.0
 
-[node name="Control" type="Control" parent="." unique_id=1582997497]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1673374674]
 
-[node name="Button" type="Button" parent="Control" unique_id=1324646954]
-layout_mode = 0
-offset_left = 339.0
-offset_top = 423.0
-offset_right = 386.0
-offset_bottom = 454.0
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1324646954]
+offset_left = 285.0
+offset_top = 416.0
+offset_right = 414.0
+offset_bottom = 493.0
+theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
-[node name="TextEdit" type="Label" parent="Control" unique_id=311146889]
-layout_mode = 0
-offset_left = 445.0
-offset_top = 93.0
-offset_right = 589.0
-offset_bottom = 184.0
+[node name="TextEdit" type="Label" parent="CanvasLayer" unique_id=311146889]
+offset_left = 434.0
+offset_top = 27.0
+offset_right = 871.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 50
 text = "The Bouncing Fish"
 
-[node name="TextEdit2" type="Label" parent="Control" unique_id=474221931]
-layout_mode = 0
-offset_left = 927.0
-offset_top = 212.0
-offset_right = 1126.0
-offset_bottom = 298.0
+[node name="TextEdit2" type="Label" parent="CanvasLayer" unique_id=474221931]
+offset_left = 883.0
+offset_top = 210.0
+offset_right = 1131.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 20
 text = "Made for Hackclub Haven
 A 24h game jam"
 
-[node name="TextEdit3" type="Label" parent="Control" unique_id=544514113]
-layout_mode = 0
+[node name="TextEdit3" type="Label" parent="CanvasLayer" unique_id=544514113]
 offset_left = 492.0
 offset_top = 601.0
-offset_right = 691.0
+offset_right = 725.0
 offset_bottom = 694.0
+theme_override_font_sizes/font_size = 20
 text = "Solo project by penzboti"
 
 [node name="player" parent="." unique_id=561193126 instance=ExtResource("3_con2f")]
@@ -109,4 +105,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6501408, 0.12908716, -1.36
 
 [node name="Ground" parent="." unique_id=1931370329 instance=ExtResource("10_6cdou")]
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

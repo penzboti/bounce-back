@@ -15,7 +15,7 @@ config/tags=PackedStringArray("game")
 run/main_scene="uid://cftedsfi2s4o6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
-boot_splash/bg_color=Color(0.18987596, 0.2977099, 3.3691526e-07, 1)
+boot_splash/bg_color=Color(0.22745098, 0.23137255, 0.23137255, 1)
 boot_splash/image="uid://dh8khq37ua3hg"
 config/icon="uid://dh8khq37ua3hg"
 
@@ -114,6 +114,10 @@ ui_down={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 3d/default_gravity=15.0
@@ -123,5 +127,6 @@ ui_down={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.4487208, 0.5723561, 0.88687223, 1)
 environment/bg_color=Color(0.14, 0.14, 0.14, 1)
