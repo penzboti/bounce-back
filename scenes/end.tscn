@@ -13,16 +13,15 @@ script/source = "extends Button
 @export var mobile_ui_scn: PackedScene
 
 func _ready() -> void:
-	if !OS.has_feature(\"mobileOS\"):
+	if !OS.has_feature(\"mobile\") && !$\"../..\".debug_touch:
 		$\".\".queue_free()
 
 
 func _on_button_down() -> void:
 	var node = mobile_ui_scn.instantiate()
-	print(node.debug_touch)
-	node.debug_touch = true
-	print(\"halo\")
+	node.debug_touch = $\"../..\".debug_touch
 	$\"..\".add_child(node)
+	$\".\".queue_free()
 "
 
 [node name="End" type="Node3D" unique_id=1295700553]
@@ -51,42 +50,69 @@ transform = Transform3D(-0.4294807, 0, -0.90307605, 0, 1, 0, 0.90307605, 0, -0.4
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1215109113]
 
 [node name="TextEdit" type="Label" parent="CanvasLayer" unique_id=684692085]
-offset_left = 405.0
-offset_top = 20.0
-offset_right = 842.0
-offset_bottom = 111.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.5
+offset_right = 218.5
+offset_bottom = 91.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "The Bouncing Fish"
 
 [node name="TextEdit2" type="Label" parent="CanvasLayer" unique_id=509225476]
-offset_left = 462.0
-offset_top = 149.0
-offset_right = 792.0
-offset_bottom = 235.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 86.0
+offset_right = 165.0
+offset_bottom = 172.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "Thank you for playing!!"
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=254890277]
-offset_left = 494.0
-offset_top = 501.0
-offset_right = 728.0
-offset_bottom = 564.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -114.0
+offset_right = 123.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Go to menu"
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=645347088]
-offset_left = 482.0
-offset_top = 607.0
-offset_right = 744.0
-offset_bottom = 635.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -28.0
+offset_right = 131.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "They're named Eugene btw"
 
 [node name="Button2" type="Button" parent="CanvasLayer" unique_id=1405164757]
-offset_left = 1078.0
-offset_top = 585.0
-offset_right = 1108.0
-offset_bottom = 607.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.0
+offset_top = -52.0
+offset_right = -37.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 10
 text = "FUN"
 script = SubResource("GDScript_s4tl2")

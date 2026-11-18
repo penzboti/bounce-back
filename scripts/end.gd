@@ -2,6 +2,8 @@ extends Node3D
 
 var random = RandomNumberGenerator.new()
 
+@export var debug_touch = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	random.seed = "halacskaaaaaa".length()
